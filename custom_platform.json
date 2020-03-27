@@ -8,9 +8,9 @@
     {
       "type": "amazon-ebs",
       "name": "HVM AMI builder",
-      "region": "",
-      "source_ami": "",
-      "instance_type": "m3.medium",
+      "region": "us-west-2",
+      "source_ami": "ami-02d0ea44ae3fe9561",
+      "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ssh_pty": "true",
       "ami_name": "Beanstalk Custom Platform running Node on Ubuntu Server 16.04 LTS (built on {{isotime \"20060102150405\"}})",

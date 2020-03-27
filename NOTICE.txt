@@ -1,8 +1,10 @@
 NodePlatform_Ubuntu
 Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
-Disclaimer
-----------
-
-Please note, this sample is meant as an example to build a custom platform based on Ubuntu to use on AWS Elastic Beanstalk. This is not intended to be used as a platform for running any kind of prodcution workloads.
-
+This platform is modified from the provided example custom platform for Node.js w/ Ubuntu.
+The following modifications have been made by Graham Knight:
+- NOTICE.txt updated to include a list of all modifications
+- platform.yaml customized
+- README.md updated to reflect changes made to platform.yaml
+- added values to custom_platform.json for "source_ami" and "region". Specified "instance_type" as t2.micro
+- added builder\setup-scripts\03-jitsi-meet.sh to perform the necessary setup steps for jitsi meet

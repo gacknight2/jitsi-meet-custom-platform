@@ -14,8 +14,8 @@ provisioner:
   flavor: ubuntu1604
 
 metadata:
-  maintainer: <please enter your name here>
-  description: Sample NodeJs Container.
+  maintainer: Graham Knight
+  description: ThinQ Jitsi Meet NodeJs Container
   operating_system_name: Ubuntu
   operating_system_version: 16.04
   programming_language_name: ECMAScript
