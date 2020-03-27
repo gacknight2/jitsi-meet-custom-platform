@@ -7,4 +7,7 @@ The following modifications have been made by Graham Knight:
 - platform.yaml customized
 - README.md updated to reflect changes made to platform.yaml
 - added values to custom_platform.json for "source_ami" and "region". Specified "instance_type" as t2.micro
-- added builder\setup-scripts\03-jitsi-meet.sh to perform the necessary setup steps for jitsi meet
+- added builder\setup-scripts\03-install-expect.sh to install Expect
+- Renamed the files in "builder\platform-uploads\opt\elasticbeanstalk\hooks\appdeploy\pre" from "01-compile.sh" to "02-compile.sh" and from "00-unzip.sh" to "01-unzip.sh"
+- Commented out lines 15 and 16 in "01-unzip.sh"
+- Added the file "00-hack.sh" to "builder\platform-uploads\opt\elasticbeanstalk\hooks\appdeploy\pre"

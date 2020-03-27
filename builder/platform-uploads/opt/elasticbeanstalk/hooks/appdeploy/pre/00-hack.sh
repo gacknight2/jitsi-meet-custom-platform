@@ -1,21 +1,9 @@
-# Need to be logged in as root
+#!/bin/bash -xe
 
-#cd /etc/apt
-#Check for presence of Universe in file 'sources.list.d'
-#cd ~
-
-echo "ID info for platform scripts:"
-id
-
-echo 'deb https://download.jitsi.org stable/' >> /etc/apt/sources.list.d/jitsi-stable.list
-wget -qO -  https://download.jitsi.org/jitsi-key.gpg.key | apt-key add -
-
-echo "Installing expect"
-apt-get update -y
-apt-get install -y expect
-
-# myip could be replaced with domain name
+# Installing existing Jitsi-Meet repository using the quick-install method.
+# More information at https://github.com/jitsi/jitsi-meet/blob/master/doc/quick-install.md
 myip=thinq-tv.us-west-2.elasticbeanstalk.com
+# myip could be replaced with domain name
 #myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 down=$(tput cud1)
 right=$(tput cuf1)
@@ -44,3 +32,9 @@ export right
 	expect eof
 EOCF
 
+# Replacing EB's expected directories with Jitsi's
+JITSI_DIR=/usr/share/jitsi-meet/
+rm -rf $STAGING_DIR
+#rm -rf $LIVE_DIR
+ln -s $JITSI_DIR $STAGING_DIR
+#ln -s $JITSI_DIR $LIVE_DIR
