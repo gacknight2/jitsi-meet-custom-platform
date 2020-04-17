@@ -2,12 +2,12 @@
 
 # Installing existing Jitsi-Meet repository using the quick-install method.
 # More information at https://github.com/jitsi/jitsi-meet/blob/master/doc/quick-install.md
-myip=thinq-tv.us-west-2.elasticbeanstalk.com
-# myip could be replaced with domain name
-#myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+locator=thinq-tv.us-west-2.elasticbeanstalk.com
+# IP could be replaced with domain name
+#locator="$(dig +short locator.opendns.com @resolver1.opendns.com)"
 down=$(tput cud1)
 right=$(tput cuf1)
-export myip
+export locator
 export down
 export right
 /usr/bin/expect << EOCF
@@ -16,7 +16,7 @@ export right
 	spawn apt-get -y install jitsi-meet
 	expect "The hostname of the current installation:*"
 	sleep 0.2
-	send "$::env(myip)\r"
+	send "$::env(locator)\r"
 	send "$::down"
 	send "\r"
 	expect "I want to use my own certificate"
@@ -32,9 +32,8 @@ export right
 	expect eof
 EOCF
 
-# Replacing EB's expected directories with Jitsi's
+#whereis jitsi-meet
 JITSI_DIR=/usr/share/jitsi-meet/
 rm -rf $STAGING_DIR
-#rm -rf $LIVE_DIR
-ln -s $JITSI_DIR $STAGING_DIR
-#ln -s $JITSI_DIR $LIVE_DIR
+mkdir -p $STAGING_DIR
+mv -v $JITSI_DIR* $STAGING_DIR

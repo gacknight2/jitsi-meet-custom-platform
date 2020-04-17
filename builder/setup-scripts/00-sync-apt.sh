@@ -10,3 +10,6 @@
 
 
 #apt -y update
+# The yes pipe in the line below is supposed to be redundant, but AWS documentation suggests the need for it.
+yes | apt -y update
+exit 0
